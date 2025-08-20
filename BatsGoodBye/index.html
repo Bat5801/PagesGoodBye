@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>坦率的离别书</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="asset/img/神奇代码岛Logo.png" type="image/png">
+</head>
+
+<body>
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="asset/audio/BGM.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 音乐控制按钮 -->
+    <button id="musicControl"
+        style="position: fixed; top: 20px; right: 20px; width: 40px; height: 40px; border-radius: 50%; background-color: rgba(56, 56, 242, 0.7); color: black; border: none; cursor: pointer; z-index: 1000; display: flex; justify-content: center; align-items: center;">
+        ▶
+    </button>
+    <div class="pixel-container">
+        <!-- 坦率的虚拟形象招手再见 -->
+        <div class="pixel-bat">
+            <img src="asset/img/坦率的虚拟形象招手再见.jpg" alt="坦率的虚拟形象招手再见" class="avatar" style="max-width: 100%; height: auto;">
+        </div>
+
+        <!-- 标题 -->
+        <div class="pixel-title">
+            <h1>坦率的离别书</h1>
+            <p class="subtitle">再见了......</p>
+        </div>
+
+        <!-- 离别文案区域 -->
+        <div class="pixel-content" id="farewell-message-container">
+            <div class="text-box">
+                <h2>离别语</h2>
+                <div class="farewell-text">
+                    <p>亲爱的岛民们，我是坦率的血翼蝠5801。</p>
+                    <p>不是因为神岛风气什么的，只是因为我要九年级了，要准备中考了。</p>
+                    <p>因此，我应该会退一年。</p>
+                    <p>不仅仅是退岛，还退Q、退微信、退Bilibili、退Gitee......</p>
+                    <p>退网，但我不会删除我的账号。</p>
+                    <p>希望我退网期间，不要有人删我好友，也不要把我踢出群，但愿吧……</p>
+                    <p>具体是否回归要看我的中考成绩，如果考上重点高中就能回来，反之，我会永退。</p>
+                    <p>但无论如何，2026年6月23日应该是我能最早的返回时间。</p>
+                    <p>到时候我们再见！</p>
+                    <p>另：从2025/08/07开始，我将每天只上线最多2h。</p>
+                    <p>希望我们能好好把握这个暑假，共同迎接美好的未来！</p>
+                    <p>——坦率的血翼蝠5801 12823830</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 退岛倒计时 -->
+        <div class="pixel-countdown" id="farewell-countdown">
+            <h3>预计退岛倒计日</h3>
+            <div class="countdown-display">
+                <div class="time-unit">
+                    <span id="farewell-days">365</span>
+                    <label>天</label>
+                </div>
+                <div class="time-unit">
+                    <span id="farewell-hours">00</span>
+                    <label>时</label>
+                </div>
+                <div class="time-unit">
+                    <span id="farewell-minutes">00</span>
+                    <label>分</label>
+                </div>
+                <div class="time-unit">
+                    <span id="farewell-seconds">00</span>
+                    <label>秒</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 回归倒计时 -->
+        <div class="pixel-countdown">
+            <h3>预计回归倒计日</h3>
+            <div class="countdown-display">
+                <div class="time-unit">
+                    <span id="days">365</span>
+                    <label>天</label>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">00</span>
+                    <label>时</label>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">00</span>
+                    <label>分</label>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds">00</span>
+                    <label>秒</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo容器 -->
+        <div class="logo-container">
+            <div
+                style="text-align: center; margin-bottom: 15px; font-size: 20px; font-weight: bold; color: #ffffff; text-shadow: 0 0 10px rgba(56, 56, 242, 0.7);">
+                联系方式</div>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+                <a href="https://dao3.fun/profile/12823830" id="dao3LogoLink" style="display: inline-block;">
+                    <div
+                        style="width: 80px; height: 80px; border: 2px solid #3838f2; padding: 5px; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); box-shadow: 0 0 15px rgba(56, 56, 242, 0.3); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center;">
+                        <img src="asset/img/神奇代码岛logo.svg" alt="神奇代码岛"
+                            style="width: 60px; height: 60px; image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;">
+                    </div>
+                </a>
+                <a href="javascript:void(0)" id="qqLogoLink" style="display: inline-block;">
+                    <div
+                        style="width: 80px; height: 80px; border: 2px solid #3838f2; padding: 5px; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); box-shadow: 0 0 15px rgba(56, 56, 242, 0.3); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center;">
+                        <img src="asset/img/qq_logo.svg" alt="QQ"
+                            style="width: 60px; height: 60px; image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;">
+                    </div>
+                </a>
+                <a href="https://space.bilibili.com/3546554069682633" id="bilibiliLogoLink"
+                    style="display: inline-block;">
+                    <div
+                        style="width: 80px; height: 80px; border: 2px solid #3838f2; padding: 5px; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); box-shadow: 0 0 15px rgba(56, 56, 242, 0.3); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center;">
+                        <img src="asset/img/bilibili_logo.svg" alt="Bilibili"
+                            style="width: 60px; height: 60px; image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;">
+                    </div>
+                </a>
+                <a href="https://gitee.com/bat5801" id="giteeLogoLink" style="display: inline-block;">
+                    <div
+                        style="width: 80px; height: 80px; border: 2px solid #3838f2; padding: 5px; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); box-shadow: 0 0 15px rgba(56, 56, 242, 0.3); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center;">
+                        <img src="asset/img/gitee.svg" alt="Gitee"
+                            style="width: 60px; height: 60px; image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;">
+                    </div>
+                </a>
+                <a href="https://github.com/Bat5801" id="githubLogoLink" style="display: inline-block;">
+                    <div
+                        style="width: 80px; height: 80px; border: 2px solid #3838f2; padding: 5px; background: linear-gradient(135deg, #0a0a1a, #1a1a3a); box-shadow: 0 0 15px rgba(56, 56, 242, 0.3); transition: all 0.3s ease; display: flex; justify-content: center; align-items: center;">
+                        <img src="asset/img/github.svg" alt="GitHub"
+                            style="width: 60px; height: 60px; image-rendering: pixelated; image-rendering: -moz-crisp-edges; image-rendering: crisp-edges;">
+                    </div>
+                </a>
+                <style>
+                    #dao3LogoLink:hover div,
+                    #qqLogoLink:hover div,
+                    #bilibiliLogoLink:hover div,
+                    #giteeLogoLink:hover div,
+                    #githubLogoLink:hover div {
+                        transform: scale(1.1);
+                        box-shadow: 0 0 20px rgba(56, 56, 242, 0.5);
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 像素装饰 -->
+    <div class="pixel-decorations">
+        <div class="pixel-star"></div>
+        <div class="pixel-heart"></div>
+        <div class="pixel-cloud"></div>
+    </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // 背景音乐控制
+        const bgMusic = document.getElementById('bgMusic');
+        const musicControl = document.getElementById('musicControl');
+
+        // 明确设置按钮初始为暂停样式
+        musicControl.textContent = '▶';
+
+        // 尝试自动播放音乐
+        bgMusic.play().then(() => {
+            // 播放成功后改为播放状态
+            musicControl.textContent = '❚❚';
+        }).catch(error => {
+            console.log('无法自动播放音乐:', error);
+            // 播放失败保持暂停状态
+            musicControl.textContent = '▶';
+        });
+
+        // 音乐控制按钮点击事件
+        musicControl.addEventListener('click', function () {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicControl.textContent = '❚❚';
+            } else {
+                bgMusic.pause();
+                musicControl.textContent = '▶';
+            }
+        });
+    </script>
+</body>
+
+</html>
